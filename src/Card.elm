@@ -4,15 +4,16 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 
+--Model
 type alias Model = { id: Int, value: String, flipped: Bool}
 
 init: Int -> String -> Model
 init id value =
   { id = id, value = value, flipped = True}
 
+
 --Update
 type Action = Flip
-
 
 update: Action -> Model -> Model
 update action model =
@@ -20,6 +21,8 @@ update action model =
       Flip ->
         { model | flipped = not model.flipped}
 
+
+--View
 view: Signal.Address Action -> Model -> Html
 view address model =
   div [ onClick address Flip

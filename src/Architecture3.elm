@@ -2,7 +2,6 @@ import StartApp.Simple as StartApp
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import Graphics.Element exposing (..)
 import Time exposing (..)
 import Card exposing (..)
 
@@ -11,7 +10,7 @@ type alias Model = List Card.Model
 type alias ID = Int
 
 values: List String
-values = [ "Elm Rocks", "Flip me", "17", "Maritime", "Dev", "Con", "Thanks", "For", "Listening!"]
+values = [ "Elm Rocks", "Watch me", "Flip!", "Maritime", "Dev", "Con", "Thanks", "For", "Listening!"]
 
 initialModel: Model
 initialModel = List.indexedMap Card.init values
@@ -36,7 +35,7 @@ update action model =
 
 view: Signal.Address Action -> Model -> Html
 view address model =
-  div [] (List.map (viewCard address) model)
+  div [class "clearfix", style [("width", "300px"), ("height", "300px")]] (List.map (viewCard address) model)
 
 viewCard: Signal.Address Action -> Card.Model -> Html
 viewCard address cardModel =
